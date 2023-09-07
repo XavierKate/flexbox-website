@@ -11,8 +11,8 @@
 /* root variable */
 :root {
   --blue: blue;
-  --lightblue: dodgerblue;
-  --gray: gray;
+  --lightblue: rgba(58, 147, 237, 0.885);
+  --gray: rgb(178, 176, 176);
 }
 
 /* body */
@@ -87,20 +87,23 @@ button {
 /* header ---------------
  */
 header {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
   justify-content: space-between;
-  gap: 30px;
   padding-block: 20px;
 }
 
 nav ul {
+  display: grid;
+  grid-template-columns: repeat(6, auto);
+
   list-style: none;
-  display: flex;
+  justify-content: right;
+
   padding: 0;
   margin: 0;
   gap: 20px;
-  align-items: center;
 }
 
 li:last-child a {
@@ -164,8 +167,8 @@ li:last-child a:focus {
 
 #services {
   padding-block: 70px 100px;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
   gap: 30px;
 }
 
@@ -174,12 +177,14 @@ li:last-child a:focus {
   border-radius: 20px;
   padding: 40px;
 
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-column: span 2;
   gap: 14px;
+}
 
-  flex-basis: calc(33% - 20px);
-  flex-grow: 1;
+.services-card:nth-of-type(4),
+.services-card:nth-of-type(5) {
+  grid-column: span 3;
 }
 
 .services-card i {
@@ -187,13 +192,13 @@ li:last-child a:focus {
 }
 
 #services h2 {
-  flex-basis: 100%;
+  grid-column: 1/-1;
   text-align: center;
 }
 
 footer {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: auto max-content;
   align-items: center;
   background-color: var(--gray);
   padding: 20px;
